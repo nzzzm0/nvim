@@ -7,7 +7,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- configs
-vim.g.mapleader = " "
+vim.g.mapleader = ","
 vim.opt.number = true
 vim.opt.relativenumber = true
 
@@ -21,6 +21,7 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>')
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>')
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>')
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>')
+
 
 -- plugins
 local plugins = {
@@ -46,7 +47,16 @@ local plugins = {
       require("configs.lspconfig")
     end
   },
-  {"williamboman/mason.nvim"}
+  {"williamboman/mason.nvim"},
+  {"nvim-lua/plenary.nvim"},
+  {"nvim-telescope/telescope.nvim", tag = "0.1.8"}
 }
 require("lazy").setup(plugins)
 require("mason").setup()
+
+-- telescope
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fw', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
