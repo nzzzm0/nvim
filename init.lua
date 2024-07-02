@@ -22,6 +22,8 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>')
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>')
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>')
 
+vim.keymap.set('t', '<C-n>', '<C-\\><C-n>') -- exit terminal
+vim.keymap.set('n', '<C-n>', '<cmd>Ex<CR>') -- exit terminal
 
 -- plugins
 local plugins = {
@@ -60,3 +62,7 @@ vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fw', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+
+-- lspconfig
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, {})
+
